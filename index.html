@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exemple de page Wikipédia interactive">
+    <title>Altanatin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #3366cc;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            width: 50px;
+            height: auto;
+        }
+        .search-bar {
+            flex: 1;
+            margin: 0 auto;
+            display: flex;
+            align-items: baseline;
+            justify-content: baseline;
+        }
+        .search-bar input {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .bleu{
+            color: #3366cc; /* bleu Wikipedia */
+            text-decoration: none;
+            cursor: pointer;
+        }
+        header h1 {
+            margin: 0;
+            flex-shrink: 0;
+        }
+        main {
+            display: flex;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+        nav {
+            flex: 0.8; /* Réduit la largeur de la table des matières */
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: max-content;
+            margin-right: 20px; /* Espace entre le sommaire et le contenu principal */
+        }
+        nav h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3366cc;
+            padding-bottom: 5px;
+        }
+        nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #3366cc;
+        }
+        .content-area {
+            flex: 4; /* Augmente la largeur du contenu principal */
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        section h2 {
+            border-bottom: 2px solid #3366cc;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            position: relative;
+        }
+        section h2::after {
+            content: "\25BC";
+            font-size: 0.8em;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: transform 0.2s;
+        }
+        section h2.collapsed::after {
+            transform: rotate(-90deg);
+        }
+        .content {
+            display: none;
+        }
+        .sidebar {
+            flex: 1.5;
+            background: #f1f1f1;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #3366cc;
+            padding-bottom: 5px;
+        }
+        .sidebar p {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="wikipedia.png" alt="Logo Wikipédia"><div style="font-family: 'Linux Libertine', 'Georgia', 'Times New Roman', serif; font-size: 40px;"> &nbsp;&nbsp;&nbsp;WikipediA
+</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher dans Wikipédia...">
+        </div>
+    </header>
+    <main>
+        <nav>
+            <h2>Table des matières</h2>
+            <ul>
+                
+                <li><a href="#histoire">Histoire</a></li>
+                <li><a href="#fonctionnalites">Constitution</a></li>
+                <li><a href="#economie">Economie</a></li>
+                <li><a href="#geographie">Géographie </a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#population">Population</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </nav>
+        <div class="content-area">
+            <h1>Altanatin</h1>
+            
+
+            <section id="histoire">
+                <h2>Histoire</h2>
+                <div class="content">
+                    <h3>Fondation et résistance tribale (1400-1600)</h3>
+                    <p>27 mars 1423: Les <span class="bleu"> Hathnati</span>, un peuple minoritaire sur une île au large de la <span class="bleu">Guadeloupe</span>,
+                        remporte une bataille décisive contre les <span class="bleu">Asketa</span>, un groupe oppresseur rebelle de la Guadeloupe
+                        qui veut étendre son territoire. Ainsi les Asketa quittent le territoire.</p>
+                    <p>Suite à leur victoire, les Hathnati proclament l’indépendance de leur territoire et nomment leur
+                        nation "Altanatin" qui signifie dans leur langue, le hatti (Al signifie "En mémoire des", tan signifie "pertes/morts",
+                         natin est l'abréviation de hathnati. Altanatin signifie alors "En mémoire des pertes hathnati" ( celles
+                        lors de la bataille en 1423 )</p>
+                    <p>Initialement, Altanatin fonctionne comme une confédération tribale oligarchique et
+                        isolationniste. Le pouvoir s’organisait au sein d’un conseil (dans le temple des Stursh)
+                        uniquement de femmes de plus de 14 ans qui étaient <span class="bleu">albinos</span> ( ils considéraient ce trait
+                        physique comme un don de Dieu et donc un symbole de pouvoir). Il y avait donc 13 femmes
+                        ( la femme albinos la plus âgée de chaque village). C’était une <span class="bleu">oligarchie </span> car les
+                        hommes albinos pouvaient suggérer des idées et mesures mais ils n’avaient aucun poids lors
+                        des décisions.</p>
+                    <p>L’économie repose jusqu’au XVII siècle sur l’autosuffisance agricole et le troc local.</p>
+
+                    <h3>L’ère des premiers contacts (1600-1750)</h3>
+                    <p>Les années 1600 à 1650 : Les explorateurs européens découvrent Altanatin, mais l’île est jugée sans
+                        intérêt stratégique en raison de sa petite taille et de son absence de richesses minérales. Elle
+                        n’est donc pas colonisé, elle reste alors isolée.</p>
+                    <p>1657: Renforcement de l’oligarchie, le conseil tribal est plus restreint pour faire face aux
+                        catastrophes naturelles ( pluies tropicales et ouragans ) plus rapidement et efficacement. Le
+                        pouvoir appartient alors à une élite réduite ( seulement les femmes de plus de 20 ans atteintes
+                        d’albinos, les hommes n’ont plus aucun apport ). Cette oligarchie reste cependant bienveillante,
+                        redistribuant les ressources au sein de la communauté.</p>
+                    
+                    <h3>Pressions coloniales et naissance de la micronation (1750-1850)</h3>
+                    <p>1750-1800 : L’expansion coloniale européenne atteint les Caraïbes, menaçant Altanatin mais ils
+                        colonisent toujours pas l’île, ils installent juste une surveillance de l’île.</p>
+                    <p>Altanatin se déclare "micronation" en 1763 pour fêter les 240 ans de la victoire face au peuple
+                        Asketa et mieux s’insérer dans la <span class="bleu">mondialisation</span>. Cependant les autres pays ne la reconnaissent
+                        pas officiellement. Altanatin adopte une politique de neutralité afin d’éviter les conflits avec les
+                        puissances coloniales.</p>
+
+                    <h3>Émergence d’une identité micronationale</h3>
+                    <p>Altanatin se concentre sur la préservation de sa culture Hathnati. Des festivals annuels, comme
+                        le "Jour de la Liberté" le 27 mars, célèbrent l’histoire de la résistance de l’île. De plus les
+                        représentants de certains pays comme la France, l’Espagne ou le Royaume-Uni sont invités. La
+                        micronation utilise son rayonnement culturel et gastronomique ( fruits tropicaux, soupe de
+                        crocodile noir...) pour entamer des relations politiques et commerciales avec les pays invités car
+                        l’île voit ses ressources être de plus en plus limitées.</p>
+                    <p>Le conseil commence à inclure des représentants femmes des villages mais choisis par la
+                        population entière du village ( homme et femme des plus de 20 ans même s’ils ne sont pas
+                        albinos). Il y a alors une légère transition vers une forme de <span class="bleu">démocratie participative</span>.</p>
+                    
+                    <h3>Modernisation et transition démocratique (1850-1945)</h3>
+                    <p>1850-1900 : L’influence des idées progressistes venues d’Europe (France, Espagne et R-U)
+                        pousse Antanatin à moderniser ses institutions ( installation d’un port...)</p>
+                    <p>1872 : la micronation se dote de petites infrastructures modernes ( ex: des moulins et des écoles
+                        communautaires ) grâce à l’aide de sympathisants européens fascinés par son statut de
+                        <span class="bleu">micronation</span>. Cependant les écoles sont installées par des aides financières françaises, en
+                        contrepartie le français est enseigné à l’école ( en moins de 60 ans le français devient alors là 1ère
+                        langue officielle suivi par le hatti)</p>
+                    <p>28 juillet 1901: naissance de Tahiri Tana, considéré comme le fondateur de cette micronation car
+                        c’est lui qui a réussi à faire reconnaître Altanatin comme une micronation officielle par des
+                        institutions internationales à travers son discours à l’ONU en 1963. Son discours revendicatif des
+                        droits en tant que communauté a permis à Altanatin d’obtenir le rôle d’observateur à l’ONU.</p>
+                    
+                    <h3>Passage à une démocratie</h3>
+                    <p>1920 : Altanatin devient officiellement une démocratie, avec un système bicaméral :
+                        <br>- Une "Assemblée du Peuple" élue.
+                        <br>- Un "Conseil des Anciens", gardien des traditions ( composée que d’hommes et femmes de
+                        plus de 20 ans )<br>
+                        Mais ce système sera modifié par la suite car il a plusieurs failles.</p>
+
+                    <h3>Altanatin à l’ère contemporaine (1945-2024)</h3>
+                    <p>Micronation reconnue :
+                        <br>1963: rôle d’observateur à l’ONU
+                        <br>1997: l’Ancien Conseil, la maison de Stursh devient patrimoine mondial et les pratiques
+                        traditionnelles comme ,le hatti, et la cuisine de <span class="bleu">crocodile noir</span>, deviennent patrimoine immatériel en
+                        2005 à l’UNESCO.
+                        <br>Sa petite taille et son économie de niche en font un exemple de résilience et d’autonomie.
+                        <br><br>Leadership écologique :
+                        <br>2010 : Altanatin devient neutre en carbone grâce à l’adoption des énergies renouvelables et à un
+                        programme ambitieux de préservation de son environnement naturel.
+                        <br>2014 : le président Amari Talnor, premier chef d'État élu né dans l’ère démocratique et qui n’est
+                        pas albinos lance le "Pacte de Luniara", une initiative pour unir les micronations du monde autour
+                        des enjeux climatiques.</p>
+
+                    <h3>Aujourd’hui : une micronation modèle</h3>
+                    <p>Altanatin, avec ses 10 000 habitants, ses 12 km2 et ses 12 villages (avec en plus une grande ville Thartana, 
+                        capitale où se trouvait l’ancien conseil et une ville où est née le fondateur) est un symbole
+                        d’harmonie entre modernité et traditions.
+                        <br>Sa gouvernance démocratique mêle innovation et respect des coutumes Hathnati, montrant
+                        qu’un petit État peut avoir un impact significatif sur le monde.
+                        <br>Altanatin reste un lieu d’inspiration, prouvant qu’une micronation, malgré sa taille, peut
+                        préserver son indépendance et prospérer dans un monde globalisé.</p>
+
+                </div>
+            </section>
+
+            <section id="fonctionnalites">
+                <h2>Constitution</h2>
+                <div class="content">
+                    <p>
+                        <h3>Constitution de l’An I</h3>
+
+<h4>Préambule</h4>Les représentants du peuple, réunis en Congrès, ont rédigé et ratifié la présente Constitution. Fruit du travail de la Nation contre l’obscurantisme, elle vise à garantir la souveraineté, la continuité et la liberté du peuple d’Altanatin à jamais. Ces droits naturels et fondamentaux sont inaliénables et imprescriptibles.
+
+Le Président du Congrès National a rédigé la <span class="bleu">Constitution</span> fixant l’an I de notre Nation pour garantir la stabilité de l’État et l’équilibre des pouvoirs, dans l’esprit de prudence, de tradition et de devoir.
+
+<h4>TITRE I — DE L’ÉTAT, DE SA LÉGITIMITÉ ET DE SA STRUCTURE</h4>
+
+<ul><li>Article 1 : L’État, considéré comme nécessaire à toute société ordonnée, est garant de la souveraineté du peuple, de sa protection, et n’est légitime que dans l’intérêt supérieur de la Nation. Toute atteinte à ce principe est une trahison de la chose publique.
+
+</li><li>Article 2 : Aucune société ne peut subsister sans autorité légitime. Les luttes anarchiques, les séditions et les révoltes violentes sont anticonstitutionnelles, car le pouvoir ne peut naître du désordre.
+
+</li><li> Article 3 : L’État ne saurait être jugé selon une morale fluctuante. Il est dépositaire d’un ordre ancien et sacré. La religion officielle de la Nation est le catholicisme romain, fondement spirituel et culturel de son unité.
+
+</li><li> Article 4 : La séparation des pouvoirs est inaliénable. Elle assure la protection des gouvernés comme des gouvernants.</li></ul>
+
+<h4>TITRE II — DES INSTITUTIONS</h4>
+
+<ul><li>Article 5 — Du pouvoir législatif :<ul>
+<li>5.1 Les représentants de la Nation proposent et votent les lois encadrant les droits civils et les devoirs. Ils ne peuvent ni organiser les institutions, ni exercer le pouvoir exécutif ou diplomatique.
+</li><li> 5.2 Les représentants du peuple sont élus au suffrage universel.
+</li><li> 5.3 L’Assemblée du Peuple réunit virtuellement 10 % des citoyens. Elle élit en son sein les membres de la Tribune. Elle ne dispose d’aucune compétence législative. Les députés sont élus pour cinq ans.
+</li><li> 5.4 La Tribune, composée de 500 membres, vote les lois. Un tiers, selon l’ancienneté, rejoint tous les cinq ans le Sénat.
+</li><li> 5.5 Le Sénat, chambre haute, propose et vote les lois. Il tranche en dernier recours les désaccords avec la Tribune. Il nomme la moitié de la Haute-Cour de Justice.
+</li></ul>
+</li><li> Article 6 — Du pouvoir exécutif :
+<ul><li>6.1 Le Président de la République, élu pour cinq ans au suffrage universel direct, est le seul représentant de la Nation à l’international. Il détient l’intégralité du pouvoir exécutif, qu’il délègue à son Collégial. Il nomme la moitié des membres de la Haute-Cour de Justice, ratifie les lois, dispose d’un droit de veto contrôlé par la Haute-Cour, et est chef des armées et des affaires étrangères.
+</li><li> 6.2 Le Collégial, formé de secrétaires nommés par le Président, exerce le pouvoir exécutif en son nom. Il est responsable devant le Sénat, qui peut le révoquer à la majorité des deux tiers.
+</li></ul></li><li>
+Article 7 — Du pouvoir judiciaire :
+<ul><li>7.1 Le pouvoir judiciaire est indépendant, n’a pas de rôle politique, et applique strictement la loi.
+</li><li>7.2 La Haute-Cour de Justice est l’organe suprême, gardienne de la Constitution. Elle contrôle les lois, arbitre les conflits institutionnels, et nomme les magistrats.
+</li><li>7.3 La magistrature applique la loi. Le droit d’appel est garanti. Les affaires pénales et civiles sont jugées séparément, selon les deux codes respectifs.
+</li></ul></li><li>
+Article 8 : L’État assure la continuité du pouvoir par une planification prudente et ordonnée. Nul pouvoir ne peut être suspendu ou aboli sans remplacement immédiat.
+</li></ul>
+<h4>TITRE III — DES DROITS NATURELS DES CITOYENS</h4>
+<ul><li>
+Article 9 : Les hommes et les femmes de la Nation naissent et demeurent libres et égaux en droits. Ces libertés sont fixées et garanties par la loi.
+</li><li>
+Article 10 : La Nation repose sur un contrat organique entre les familles et les générations. Tout citoyen doit respect et fidélité à la Nation.
+</li><li>
+Article 11 : La propriété est un droit sacré. Nul ne peut en être privé que pour nécessité publique et moyennant juste indemnité.
+</li><li>
+Article 12 : La liberté d’expression est garantie dans le respect de l’ordre public et des traditions de la Nation.
+</li><li>
+Article 13 : L’honneur de servir la Nation, par les armes ou la fonction publique, est un devoir autant qu’un droit.
+</li><li>
+Article 14 : Le travail est un pilier de la dignité humaine. L’État garantit à chacun la possibilité de travailler.
+</li><li>
+Article 15 : Le mariage, union naturelle entre un homme et une femme, est protégé par la loi.
+</li><li>
+Article 16 : L’éducation des enfants est un droit des familles. L’État veille à la qualité et à l’équité de l’instruction.
+</li><li>
+Article 17 : Toute atteinte volontaire à l’ordre social ou à la transmission des héritages moraux et matériels est un crime contre la Nation.
+</li></ul>
+<h4>TITRE IV — DE L’ÉCONOMIE NATIONALE</h4>
+<ul><li>
+Article 18 : L’économie est au service du bien commun. L’accumulation illimitée des richesses au détriment de l’unité nationale est contraire à l’ordre public.
+</li><li>
+Article 19 : L’État protège la propriété privée, mais intervient dans les cas d’abus manifeste ou de péril économique.
+</li><li>
+Article 20 : Le travail, la terre et la famille sont les piliers économiques de la Nation.
+</li><li>
+Article 21 : L’usure est strictement encadrée. L’économie doit servir la production réelle et la stabilité sociale.
+</li><li>
+Article 22 : Les corporations de métier et les syndicats sont reconnus s’ils œuvrent au respect du bien commun.
+</li><li>
+Article 23 : La spéculation sur les denrées de première nécessité est un crime économique.
+</li><li>
+Article 24 : La dette publique ne doit pas hypothéquer l’avenir des générations futures.
+</li><li>
+Article 25 : L’État soutient les industries stratégiques, la ruralité et l’agriculture paysanne.
+</li><li>
+Article 26 : L’importation de produits contraires aux valeurs ou à la sécurité de la Nation peut être interdite.
+</li><li>
+Article 27 : L’économie doit favoriser l’enracinement local, l’artisanat et l’autonomie des provinces.
+</li><li>
+Article 28 : Tout citoyen capable a le devoir de contribuer, par son travail ou son service, à la prospérité collective.
+</li><li>
+Article 29 : Les grandes entreprises doivent reverser une part de leurs bénéfices aux communautés locales.
+</li><li>
+Article 30 : La fiscalité est progressive et vise à renforcer la cohésion sociale, non à punir la réussite.
+</li><li>
+Article 31 : Les monopoles étrangers sont interdits dans les secteurs vitaux de l’économie nationale.
+</li><li>
+Article 32 : L’héritage familial est un principe constitutionnel. L’impôt sur la succession ne peut en compromettre la transmission.
+</li><li>
+Article 3  : Le crédit public ne doit servir qu’à des projets d’utilité durable et nationale.
+</li><li>
+Article 34 : La terre agricole appartient prioritairement aux citoyens travaillant la terre. Sa vente à des entités étrangères est strictement réglementée.
+</li><li>
+Article 35 : L’économie doit être instruite par la prudence, la tradition et la transmission. L’innovation ne saurait détruire l’ordre ancien.
+</li><li>
+Article 36 : Toute forme de paupérisme est une blessure à la dignité nationale. L’État doit garantir un minimum vital à chacun.
+</li><li>
+Article 37 : L’économie ne saurait sacrifier l’homme à la technique. Le progrès est au service de la personne humaine.
+</li><li>
+Article 38 : L’éducation économique doit viser à former des citoyens responsables, et non de simples agents de production.
+</li><li>
+Article 39 : Le commerce extérieur est subordonné à l’indépendance et à la souveraineté de la Nation.
+</li><li>
+Article 40 : La politique économique de l’État est orientée vers la stabilité, la justice, l’équilibre social et la protection des générations futures.
+</il></ul>
+                    </p>
+             
+                </div>
+            </section>
+            <section id="economie">
+                <h2>Economie</h2>
+                <div class="content">
+                    <p>      D’autre part, l’aspect économique est également un point fondamental de notre micronation. Il
+                        repose sur l’exploitation d’un matériau de synthèse très efficace pour l’industrie mondiale : la fibre
+                        de tungstène. Inventée par les scientifiques de la micronation, la production et l’exploitation de ce
+                        matériau représentent 75 % des exportations, 80 % des emplois et 90 % des revenus de la
+                        micronation. Ce secteur est largement soutenu par l’Etat à l’aide d’énorme subventions. Le reste
+                        concerne principalement la fonction publique et l’agriculture.              </p>
+                        <p>Plus précisément, l’éducation et la <span class="bleu">science</span> sont des priorités pour cette micronation, car son
+                            économie en dépend entièrement. La fibre de tungstène est un matériau synthétique extrêmement
+                            solide, souple et résistant à des températures extrêmes. De plus, elle est semi-conductrice sous
+                            certaines conditions, ce qui la rend très utile pour l’industrie de pointe.</p>
+                        <p>En ce qui concerne l’énergie, la micronation s’appuie sur l’utilisation de la<span class="bleu"> fusion nucléaire</span> pour
+                            subvenir à ses besoins. Cette énergie est très verte et ne nécessite que de l’eau comme
+                            ressource. Une quantité très faible d’eau suffit chaque année, de l’ordre de 100 litres par an.</p>
+                </div>
+            </section>
+            <section id="geographie">
+                <h2>Géographie</h2>
+                <div class="content">
+                    <p>
+                        L’Altanatin est une île riche en <span class="bleu">tungstène</span> située au large de la Guadeloupe, dans la mer Racasse. Habitée depuis plusieurs siècles, elle se
+                         distingue par un relief varié mêlant plages de sable noir, falaises escarpées et forêts tropicales. Son cœur montagneux est dominé par le
+                          mont Elur, un ancien volcan encore entouré de mythes. Le littoral accueille le grand port, à la fois centre économique et culturel 
+                          du pays, où se croisent bateaux de pêche, ferries régionaux et cargos
+                         internationaux. Grâce à son climat tropical doux et à ses terres fertiles, l’île connaît une <span class="bleu">agriculture</span> vivace et une riche biodiversité.                    </p>
+                </div>
+            </section>
+            <section id="culture">
+                <h2> Culture</h2>
+                <div class="content">
+                    <p>
+                        Depuis sa création, L'Altanatin possède une troupe de théâtre nationale avec les meilleurs acteurs. Depuis 2017, la troupe joue dans les salles les
+                        plus prestigieuses du monde. En 2023, pour commémorer les 350 ans de la mort du dramaturge Molière, les acteurs ont joué <span class="bleu">Le Malade imaginaire </span> le 
+                        théâtre ou Molière lui-même a joué cette pièce pour la dernière fois.
+                    </p>
+                    <p>En 2025,<span class="bleu"> Sans Larmes</span> a été élu meilleur film inspiré de faits réels. Son réalisateur souhaite créer un autre film pour recevoir un César.</p>
+                    <p>La mode en Altanatin est un reflet de son identité culturelle, entre héritage et innovation. Le vêtement traditionnel, appelé vireth, se distingue par ses motifs 
+                        tissés à la main et ses couleurs symboliques, comme le bleu pour la mer ou le doré pour la prospérité. Porté lors des fêtes et des cérémonies, 
+                        il reste un pilier de la culture vestimentaire. Aujourd’hui, une nouvelle génération de stylistes revisite 
+                        ces éléments dans un style moderne et épuré, donnant naissance à une mode altanatienne contemporaine qui attire l’attention bien au-delà de ses frontières.</p>
+                    <p>L’architecture altanatine allie harmonieusement nature et symbolisme. Les bâtiments traditionnels sont construits en pierre claire et en bois sculpté, 
+                        souvent disposés autour de cours intérieures. La <span class="bleu">cathédrale </span>ée dans la capitale représente bien le style architectural du pays. Elle a d'ailleurs été inscrite par le 
+                    pays comme bâtiment à protéger en cas de guerre.</p>
+                    <p>Les dialectes encore parlés à Altanatin sont au nombre de 5. Ils ne sont plus enseignés dans les lycées suite à la réforme des programmes scolaires en 2024. Cependant,
+                         leur utilisation est encore courante et des associations luttent pour empêcher la disparition de ces langues. A ce jour 2 dialectes ont déjà disparu.
+                    </p>
+                </div>
+            </section>
+
+            <section id="population">
+                <h2> Population</h2>
+                <div class="content">
+                    <p>La population altanatine a fortement augmenté à la fin du XIX ème siècle pour atteindre exactement 10.000 habitants aujourd’hui.
+                        Elle se concentre essentiellement dans la capitale. De plus le pays reste dynamique avec une population jeune contrairement aux pays frontaliers.
+                    </p>
+                    <p>Altanatin va envoyer ses premiers sportifs lors des Jeux Olympiques qui se tiendront à Los Angeles en 2028.<span class="bleu"> Marta Hanaka</span> portera les couleur de cette
+                        République au tir à l'arc et <span class="bleu">Jassimo Finalu </span>s'entraîne actuellement dans le centre sportif national en plongeon.
+                    </p>
+                    <p>Dans la catégorie culinaire, la première chef altanatine vient de gagner le premier prix du meilleur cuisinier du monde. 
+                        Le championnat s'est déroulé à Brasilia et <span class="bleu">Kenyla Habarahamo </span> conquis les jurys avec un ragoût de crocodile, plat emblématique du pays.
+                    </p>
+                    <p>En 2024, <span class="bleu">Mourrah Anayaka </span> été élue personnalité préférée des altanatins. La danseuse succède à l'acteur <span class="bleu">JJA</span> et<span class="bleu"> Marta Hanaka </span> en tête des 
+                        classement pour l'année 2025.
+                    </p>
+                </div>
+            </section>
+            <section id="sources">
+                <h2> Sources</h2>
+                <div class="content">
+                    <p>Article rédigé par <span class="bleu">Alba Garcia contreras</span>,<span class="bleu">Quentin Hild</span> et<span class="bleu"> Nathanaël Schuller</span>.</p>
+                    <p>Sources:
+                        <ul>
+                            <li><span class="bleu">Déclaration d'indépendance des Etats-Unis d'Amérique</span>, <span class="bleu">Jefferson</span>, 1776</li>
+                            <li><span class="bleu">Le Prince</span>, <span class="bleu">Machiavel</span></li>
+                            <li><span class="bleu">Le Leviathan</span>, <span class="bleu">Hobbes</span></li>
+                            <li><span class="bleu">Réflexion sur la Révolution de France</span>, <span class="bleu">Edmond Burk</span>, 1791</li>
+                            <li><span class="bleu">La Politique</span>, <span class="bleu">Aristote</span></li>
+                            <li><span class="bleu">De l'esprit des Lois</span>, <span class="bleu">Montesquieu</span>, 1748</li>
+                            <li><span class="bleu">Les six livres de la République</span>, <span class="bleu">Jean Bodin</span>, 1576</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <aside class="sidebar">
+            <h2>REPUBLIQUE ALTANATINE</h2>
+            <p><strong>Nom officiel :</strong> Altanatin</p>
+            <p><strong>devise :</strong> Battre pour agir, Agir pour la paix</p>
+            <p><strong>hymne :</strong> La Grandiose
+            <div style="text-align: center;font-style: italic"><br>Jamais un enfant altanatin, <br>Ne viendra pleurer dans nos mains.<br>Jamais un père altanatin,
+            <br>Ne devra demander son chemin.<br>Et toi soldat qui entend ce chant,<br>A Dieu tu cèderas ton argent<br>Pour que le ciel de toi soit reconnaissant<br>
+            De ton courage pour Altanatin<br></div></p>
+            <p><br><strong>fête nationale :</strong> 28 juillet (jour de naissance du fondateur)</p>
+            <p><strong>Drapeau :</strong> <img src="drapeau.jpg" alt="drapeau" style="width:150px"></p>
+            <p><strong>Population :</strong> 10.000 habitants</p>
+            <p><strong>Gentilé :</strong> Altanatin, Altanatine</p>
+            <p><strong>Capitale :</strong> Thartana</p>
+            <p><strong>Langue officielle :</strong> Français</p>
+            <p><strong>Superficie totale :</strong> 12 km2</p>
+            <p><strong>Animal emblématique:</strong> le crocodile</p>
+            <p><strong>Zone géographique :</strong> Au sud de la mer Racasse</p>
+            <p><strong>Monnaie :</strong> Dior</p>
+            <p><strong>Préfecture :</strong> Thartana</p>
+        </aside>
+    </main>
+    <script>
+        document.querySelectorAll("section h2").forEach(h2 => {
+            h2.addEventListener("click", () => {
+                const content = h2.nextElementSibling;
+                const isVisible = content.style.display === "block";
+
+                content.style.display = isVisible ? "none" : "block";
+                h2.classList.toggle("collapsed", isVisible);
+            });
+        });
+    </script>
+</body>
+</html>
